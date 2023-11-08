@@ -266,8 +266,30 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5961605523308861112, guid: b17d4988dacad414b935a57cc480faef, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 827322587}
   m_SourcePrefab: {fileID: 100100000, guid: b17d4988dacad414b935a57cc480faef, type: 3}
+--- !u!1 &827322583 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5961605523308861112, guid: b17d4988dacad414b935a57cc480faef, type: 3}
+  m_PrefabInstance: {fileID: 669249849}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &827322587
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 827322583}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9631003131c48441986af1351a0e2573, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sunTransform: {fileID: 1540783116}
+  orbitSpeed: 47.87
 --- !u!1001 &1155916387
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -677,6 +699,11 @@ MonoBehaviour:
   m_Teleporting:
     m_PersistentCalls:
       m_Calls: []
+--- !u!4 &1540783116 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8293279238321402919, guid: 48c53ca25c8f4184fa81a4474bcf6505, type: 3}
+  m_PrefabInstance: {fileID: 4123524287499920625}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &981424518853343869
 PrefabInstance:
   m_ObjectHideFlags: 0
