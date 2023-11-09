@@ -6,44 +6,47 @@ using UnityEngine.XR;
 public class Orbits : MonoBehaviour
 {
     public Transform sunTransform;
-    public float orbitSpeed = 10.0f;
-    public float rotationSpeed = 25.0f;
+    public float orbitSpeed;
+    public float rotationSpeed;
 
     private Vector3 initialPosition;
     private Quaternion initialRotation;
     private List<InputDevice> rightHandDevices = new List<InputDevice>();
+    private float speedScaledBy = 10;
 
-    private void GetDevices()
-    {
-        rightHandDevices.Clear();
-        InputDevices.GetDevicesWithCharacteristics(InputDeviceCharacteristics.Right | InputDeviceCharacteristics.Controller, rightHandDevices);
-    }
+    // private void GetDevices()
+    // {
+    //     rightHandDevices.Clear();
+    //     InputDevices.GetDevicesWithCharacteristics(InputDeviceCharacteristics.Right | InputDeviceCharacteristics.Controller, rightHandDevices);
+    // }
 
     void Start()
     {
         initialPosition = transform.position;
         initialRotation = transform.rotation;
-        GetDevices();
+        // GetDevices();
     }
 
     void Update()
     {
-        transform.RotateAround(sunTransform.position, Vector3.up, orbitSpeed * Time.deltaTime);
+        transform.RotateAround(sunTransform.position, Vector3.up, (orbitSpeed / speedScaledBy) * Time.deltaTime);
+        // transform.RotateAround(Vector3.zero, Vector3.up, orbitSpeed * Time.deltaTime);
         transform.Rotate(Vector3.up, rotationSpeed * Time.deltaTime);
 
-        if (rightHandDevices.Count == 0)
-        {
-            GetDevices();
-        }
+        // if (rightHandDevices.Count == 0)
+        // {
+        //     GetDevices();
+        // }
 
-        foreach (var device in rightHandDevices)
-        {
-            bool buttonPressed;
-            if (device.TryGetFeatureValue(CommonUsages.secondaryButton, out buttonPressed) && buttonPressed)
-            {
-                transform.position = initialPosition;
-                transform.rotation = initialRotation;
-            }
-        }
+        // foreach (var device in rightHandDevices)
+        // {
+        //     bool buttonPressed;
+        //     if (device.TryGetFeatureValue(CommonUsages.secondaryButton, out buttonPressed) && buttonPressed)
+        //     {
+        //         Debug.Log("here");
+        //         transform.position = initialPosition;
+        //         transform.rotation = initialRotation;
+        //     }
+        // }
     }
 }
