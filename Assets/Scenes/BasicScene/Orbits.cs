@@ -5,7 +5,9 @@ using UnityEngine;
 public class Orbits : MonoBehaviour
 {
     public Transform sunTransform;
-    public float orbitSpeed = 10.0f;
+    public float orbitSpeed;
+
+    private float scaledDownBy = 10;
 
     // Start is called before the first frame update
     void Start()
@@ -16,6 +18,6 @@ public class Orbits : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.RotateAround(sunTransform.position, Vector3.up, orbitSpeed * Time.deltaTime);
+        transform.RotateAround(sunTransform.position, Vector3.up, (orbitSpeed / scaledDownBy) * Time.deltaTime);
     }
 }
