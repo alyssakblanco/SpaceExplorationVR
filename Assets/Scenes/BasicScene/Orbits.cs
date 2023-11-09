@@ -49,4 +49,11 @@ public class Orbits : MonoBehaviour
         //     }
         // }
     }
+
+    private void OnDisable()
+    {
+        Debug.Log("here");
+        // This method is called when the script is disabled or the GameObject is set to inactive.
+        // You can perform any necessary cleanup or actions here.
+    }
 }
