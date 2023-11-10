@@ -2,12 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR;
+using UnityEngine.UI;
 
 public class Orbits : MonoBehaviour
 {
     public Transform sunTransform;
     public float orbitSpeed = 10.0f;
     public float rotationSpeed = 25.0f;
+ 
+
 
     private Vector3 initialPosition;
     private Quaternion initialRotation;
@@ -24,7 +27,10 @@ public class Orbits : MonoBehaviour
         initialPosition = transform.position;
         initialRotation = transform.rotation;
         GetDevices();
+        
+
     }
+
 
     void Update()
     {
