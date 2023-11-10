@@ -14,17 +14,17 @@ public class Orbits : MonoBehaviour
     private List<InputDevice> rightHandDevices = new List<InputDevice>();
     private float speedScaledBy = 10;
 
-    // private void GetDevices()
-    // {
-    //     rightHandDevices.Clear();
-    //     InputDevices.GetDevicesWithCharacteristics(InputDeviceCharacteristics.Right | InputDeviceCharacteristics.Controller, rightHandDevices);
-    // }
+    private void GetDevices()
+    {
+        rightHandDevices.Clear();
+        InputDevices.GetDevicesWithCharacteristics(InputDeviceCharacteristics.Right | InputDeviceCharacteristics.Controller, rightHandDevices);
+    }
 
     void Start()
     {
         initialPosition = transform.position;
         initialRotation = transform.rotation;
-        // GetDevices();
+        GetDevices();
     }
 
     void Update()
@@ -33,26 +33,26 @@ public class Orbits : MonoBehaviour
         // transform.RotateAround(Vector3.zero, Vector3.up, orbitSpeed * Time.deltaTime);
         transform.Rotate(Vector3.up, rotationSpeed * Time.deltaTime);
 
-        // if (rightHandDevices.Count == 0)
-        // {
-        //     GetDevices();
-        // }
+        if (rightHandDevices.Count == 0)
+        {
+            GetDevices();
+        }
 
-        // foreach (var device in rightHandDevices)
-        // {
-        //     bool buttonPressed;
-        //     if (device.TryGetFeatureValue(CommonUsages.secondaryButton, out buttonPressed) && buttonPressed)
-        //     {
-        //         Debug.Log("here");
-        //         transform.position = initialPosition;
-        //         transform.rotation = initialRotation;
-        //     }
-        // }
+        // Press 'B' to reset planet positions
+        foreach (var device in rightHandDevices)
+        {
+            bool buttonPressed;
+            if (device.TryGetFeatureValue(CommonUsages.secondaryButton, out buttonPressed) && buttonPressed)
+            {
+                transform.position = initialPosition;
+                transform.rotation = initialRotation;
+            }
+        }
     }
 
     private void OnDisable()
     {
-        Debug.Log("here");
+        // Debug.Log("here");
         // This method is called when the script is disabled or the GameObject is set to inactive.
         // You can perform any necessary cleanup or actions here.
     }
