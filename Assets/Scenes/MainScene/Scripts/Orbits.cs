@@ -8,7 +8,6 @@ public class Orbits : MonoBehaviour
     public Transform sunTransform;
     public float orbitSpeed;
     public float rotationSpeed;
-
     private Vector3 initialPosition;
     private Quaternion initialRotation;
     private List<InputDevice> rightHandDevices = new List<InputDevice>();
@@ -39,6 +38,7 @@ public class Orbits : MonoBehaviour
         }
 
         // Press 'B' to reset planet positions
+        // TODO: reset player position as well
         foreach (var device in rightHandDevices)
         {
             bool buttonPressed;
