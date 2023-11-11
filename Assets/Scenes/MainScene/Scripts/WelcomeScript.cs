@@ -11,12 +11,9 @@ public class WelcomeScript : MonoBehaviour
     {
         // Show welcome message for 5 seconds
         StartCoroutine(HideWelcomeMessageAfterDelay(5)); 
-
-
     }
     IEnumerator HideWelcomeMessageAfterDelay(float delay)
     {
-        Debug.Log("here");
         yield return new WaitForSeconds(delay);
         canvas.gameObject.SetActive(false);
     }
