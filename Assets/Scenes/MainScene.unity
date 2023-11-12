@@ -286,7 +286,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4134505312059479865, guid: 895f6f3c2d334633b5800312285058d2, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 186.8
+      value: 111.1
       objectReference: {fileID: 0}
     - target: {fileID: 4134505312059479865, guid: 895f6f3c2d334633b5800312285058d2, type: 3}
       propertyPath: m_LocalPosition.y
@@ -294,7 +294,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4134505312059479865, guid: 895f6f3c2d334633b5800312285058d2, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -167.1
+      value: -67.9
       objectReference: {fileID: 0}
     - target: {fileID: 4134505312059479865, guid: 895f6f3c2d334633b5800312285058d2, type: 3}
       propertyPath: m_LocalRotation.w
@@ -538,13 +538,13 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1999359519}
         m_TargetAssemblyTypeName: DismissFacts, Assembly-CSharp
-        m_MethodName: 
+        m_MethodName: StartMotion
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -841,8 +841,6 @@ MonoBehaviour:
   titleText: {fileID: 1947002126}
   factsText: {fileID: 167889589}
   planet: {fileID: 1155916388}
-  factsDescription: "Earth is the only planet where we know there's life.\n\nFun
-    Fact: 70% of the Earth\u2019s surface is covered in water."
   typingSpeed: 0.05
 --- !u!1 &1180161225
 GameObject:
@@ -1888,7 +1886,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1999359514
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2909,8 +2907,8 @@ SceneRoots:
   - {fileID: 1155916387}
   - {fileID: 4574789011618580731}
   - {fileID: 5156031791867736280}
-  - {fileID: 8862038672810048652}
   - {fileID: 981424518853343869}
+  - {fileID: 8862038672810048652}
   - {fileID: 7237233353511369701}
   - {fileID: 1275796055}
   - {fileID: 1999359518}
