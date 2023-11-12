@@ -1,13 +1,18 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System.Collections;
 
 public class PlanetInteractions : MonoBehaviour
 {
     public GameObject factsPanel;
+    public TextMeshProUGUI titleText;
+    public TextMeshProUGUI factsText;
     public GameObject planet;
     public static GameObject current_planet;
-    private TextMeshProUGUI titleText; 
+    [TextArea]
+    public string factsDescription;
+    public float typingSpeed = 0.05f;
 
     public void ShowFacts()
     {
@@ -17,10 +22,19 @@ public class PlanetInteractions : MonoBehaviour
         // set this global variable for the DismissFacts script
         current_planet = planet;
 
-        // finding & setting each text object
-        titleText = factsPanel.GetComponentInChildren<TextMeshProUGUI>();
 
-        titleText.text = $"Planet: {planet.name}"; 
+        titleText.text = $"Planet: {planet.name}";
+        StartCoroutine(TypeFacts());
         // Debug.Log(planet.name);
+    }
+
+    IEnumerator TypeFacts()
+    {
+        factsText.text = "";
+        foreach (char letter in factsDescription.ToCharArray())
+        {
+            factsText.text += letter;
+            yield return new WaitForSeconds(typingSpeed);
+        }
     }
 }
