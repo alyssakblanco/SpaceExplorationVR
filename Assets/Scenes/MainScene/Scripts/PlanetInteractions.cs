@@ -9,6 +9,8 @@ public class PlanetInteractions : MonoBehaviour
     public GameObject factsPanel;
     public TextMeshProUGUI titleText;
     public TextMeshProUGUI factsText;
+    public TextMeshProUGUI funFactsText;
+    public TextMeshProUGUI distanceText;
     public GameObject planet;
     public static GameObject current_planet;
     // public string factsDescription;
@@ -36,6 +38,19 @@ public class PlanetInteractions : MonoBehaviour
         foreach (char letter in fact.ToCharArray())
         {
             factsText.text += letter;
+            yield return new WaitForSeconds(typingSpeed);
+        }
+        funFactsText.text = "";
+        foreach (char letter in funFact.ToCharArray())
+        {
+            funFactsText.text += letter;
+            yield return new WaitForSeconds(typingSpeed);
+        }
+        distanceText.text = "";
+        string distanceString = "" + distance;
+        foreach (char letter in distanceString.ToCharArray())
+        {
+            distanceText.text += letter;
             yield return new WaitForSeconds(typingSpeed);
         }
     }
