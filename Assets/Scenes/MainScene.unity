@@ -747,6 +747,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 9014170783809206332, guid: 895f6f3c2d334633b5800312285058d2, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1353927136}
+    - targetCorrespondingSourceObject: {fileID: 9014170783809206332, guid: 895f6f3c2d334633b5800312285058d2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1353927140}
   m_SourcePrefab: {fileID: 100100000, guid: 895f6f3c2d334633b5800312285058d2, type: 3}
 --- !u!114 &452463680 stripped
 MonoBehaviour:
@@ -937,6 +940,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sunTransform: {fileID: 1540783116}
+  mainCameraTransform: {fileID: 0}
   orbitSpeed: 4.787
   rotationSpeed: 1.083
 --- !u!114 &827322588
@@ -1336,6 +1340,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sunTransform: {fileID: 1540783116}
+  mainCameraTransform: {fileID: 0}
   orbitSpeed: 2.978
   rotationSpeed: 157.4
 --- !u!4 &1155916392 stripped
@@ -2072,6 +2077,27 @@ MonoBehaviour:
     mipBias: 0
     varianceClampScale: 0.9
     contrastAdaptiveSharpening: 0
+--- !u!4 &1353927139 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 9014170783809206335, guid: 895f6f3c2d334633b5800312285058d2, type: 3}
+  m_PrefabInstance: {fileID: 452463679}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1353927140
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 318388759}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9631003131c48441986af1351a0e2573, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sunTransform: {fileID: 1540783116}
+  mainCameraTransform: {fileID: 1353927139}
+  orbitSpeed: 0
+  rotationSpeed: 0
 --- !u!1 &1400115588
 GameObject:
   m_ObjectHideFlags: 0
@@ -2705,6 +2731,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sunTransform: {fileID: 1540783116}
+  mainCameraTransform: {fileID: 0}
   orbitSpeed: 0.969
   rotationSpeed: 3684
 --- !u!1 &1947002124
@@ -3074,6 +3101,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sunTransform: {fileID: 1540783116}
+  mainCameraTransform: {fileID: 0}
   orbitSpeed: 0.681
   rotationSpeed: 1479.4
 --- !u!1001 &1400193127897613469
@@ -3170,6 +3198,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sunTransform: {fileID: 1540783116}
+  mainCameraTransform: {fileID: 0}
   orbitSpeed: 3.502
   rotationSpeed: 0.652
 --- !u!1001 &2836470079342214611
@@ -3416,6 +3445,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sunTransform: {fileID: 1540783116}
+  mainCameraTransform: {fileID: 0}
   orbitSpeed: 2.4077
   rotationSpeed: 86.6
 --- !u!1001 &5156031791867736280
@@ -3512,6 +3542,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sunTransform: {fileID: 1540783116}
+  mainCameraTransform: {fileID: 0}
   orbitSpeed: 1.307
   rotationSpeed: 4558.3
 --- !u!1001 &7237233353511369701
@@ -3608,6 +3639,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sunTransform: {fileID: 1540783116}
+  mainCameraTransform: {fileID: 0}
   orbitSpeed: 0.543
   rotationSpeed: 971.9
 --- !u!1001 &8862038672810048652
