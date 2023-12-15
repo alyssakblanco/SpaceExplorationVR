@@ -7,13 +7,66 @@ using System.Collections.Generic;
 public class PlanetInteractions : MonoBehaviour
 {
     public GameObject factsPanel;
-    public TextMeshProUGUI titleText;
-    public TextMeshProUGUI factsText;
     public GameObject planet;
+    
+    public TextMeshProUGUI planetName;
+    public TextMeshProUGUI distanceFromSun;
+    public TextMeshProUGUI lengthOfYear;
+    public TextMeshProUGUI lengthOfDay;
+    public TextMeshProUGUI fact;
+
     public static GameObject current_planet;
-    // public string factsDescription;
-    public float typingSpeed = 0.05f;
-    private Dictionary<string, Planet> planets;
+    private float typingSpeed = 0.05f;
+    private Dictionary<string, Planet> planets = new Dictionary<string, Planet>{
+        { "Mercury", new Planet { 
+            Fact = "Mercury’s craters are named after famous artists, musicians and authors.", 
+            DistanceFromSun = "57,909,227", 
+            LengthOfYear = "~ 87.97 days", 
+            LengthOfDay = "58.6 Earth days"
+        } },
+        { "Venus", new Planet { 
+            Fact = "Venus is very hot and it's the brightest planet in our sky.", 
+            DistanceFromSun = "108,209,475",
+            LengthOfYear = "~ 224.7 days",
+            LengthOfDay = "243 Earth days"
+        } },
+        { "Earth", new Planet { 
+            Fact = "70% of the Earth’s surface is covered in water.",
+            DistanceFromSun = "149,597,870",
+            LengthOfYear = "~ 365.25 days", 
+            LengthOfDay = "23 hours, 56 minutes"
+        } },
+        { "Mars", new Planet { 
+            Fact = "Mars has the tallest volcano in the solar system, named Olympus Mons.",
+            DistanceFromSun = "227,943,824",
+            LengthOfYear = "~ 686.93 days", 
+            LengthOfDay = "24 hours, 37 minutes"
+        } },
+        { "Jupiter", new Planet { 
+            Fact = "Jupiter has a giant storm called the Great Red Spot.",
+            DistanceFromSun = "778,340,821",
+            LengthOfYear = "~ 11.86 years", 
+            LengthOfDay = "9 hours, 55 minutes"
+        } },
+        { "Saturn", new Planet { 
+            Fact = "Saturn is so light, it could float in water!",
+            DistanceFromSun = "1,426,666,422",
+            LengthOfYear = "~ 29.42 years", 
+            LengthOfDay = "10 hours, 33 minutes"
+        } },
+        { "Uranus", new Planet { 
+            Fact = "Uranus is an ice giant and it spins on its side.", 
+            DistanceFromSun = "2,870,658,186",
+            LengthOfYear = "~ 83.75 years",
+            LengthOfDay = "17 hours, 14 minutes"
+        } },
+        { "Neptune", new Planet {  
+            Fact = "A windy planet, Neptune has the fastest winds in the solar system.",
+            DistanceFromSun = "4,498,396,441",
+            LengthOfYear = "~ 163.72 years", 
+            LengthOfDay = "15 hours, 57 minutes"
+        } }
+    };
 
     public void ShowFacts()
     {
@@ -23,83 +76,53 @@ public class PlanetInteractions : MonoBehaviour
         // set this global variable for the DismissFacts script
         current_planet = planet;
 
+        TextMeshProUGUI[] textObjects = {planetName, fact, distanceFromSun, lengthOfYear, lengthOfDay};
+        foreach (TextMeshProUGUI textMesh in textObjects){textMesh.text = "";}
 
-        titleText.text = $"Planet: {planet.name}";
-        // StartCoroutine(TypeFacts());
-        // Debug.Log(planet.name);
-        SetFacts(planet.name);
+        StartCoroutine(TypeFacts(textObjects));
     }
 
-    IEnumerator TypeFacts(string fact, string funFact, float distance)
+    IEnumerator TypeFacts(TextMeshProUGUI[] textObjects)
     {
-        factsText.text = "";
-        foreach (char letter in fact.ToCharArray())
-        {
-            factsText.text += letter;
-            yield return new WaitForSeconds(typingSpeed);
+        for (int i = 0; i < 5; ++i) {
+            string currentString = "";
+            // Perform different tasks based on the value of i
+            switch (i) {
+                case 0:
+                    currentString = planet.name;
+                    break;
+
+                case 1:
+                    currentString = planets[current_planet.name].DistanceFromSun;
+                    break;
+
+                case 2:
+                    currentString = planets[current_planet.name].LengthOfYear;
+                    break;
+
+                case 3:
+                    currentString = planets[current_planet.name].LengthOfDay;
+                    break;
+                
+                case 4:
+                    currentString = planets[current_planet.name].Fact;
+                    break;
+            }
+
+            foreach (char letter in currentString.ToCharArray())
+            {
+                textObjects[i].text += letter;
+                yield return new WaitForSeconds(typingSpeed);
+            }
         }
-    }
-
-    public void SetFacts(string current_planet)
-    {
-        planets = new Dictionary<string, Planet>{
-        { "Mercury", new Planet { 
-            Fact = "Mercury is the closest planet to the Sun and the smallest planet in our solar system.", 
-            FunFact = "A year on Mercury is just 88 days long!", 
-            DistanceFromSun = 57909227 
-        } },
-        { "Venus", new Planet { 
-            Fact = "Venus is very hot and it's the brightest planet in our sky.", 
-            FunFact = "Venus spins backwards on its axis compared to most planets.",
-            DistanceFromSun = 108209475 
-        } },
-        { "Earth", new Planet { 
-            Fact = "Earth is the only planet where we know there's life.", 
-            FunFact = "70% of the Earth’s surface is covered in water.",
-            DistanceFromSun = 149597870 
-        } },
-        { "Mars", new Planet { 
-            Fact = "Mars is called the Red Planet because of its reddish color.", 
-            FunFact = "Mars has the tallest volcano in the solar system, named Olympus Mons.",
-            DistanceFromSun = 227943824 
-        } },
-        { "Jupiter", new Planet { 
-            Fact = "Jupiter is the biggest planet in our solar system.", 
-            FunFact = "Jupiter has a giant storm called the Great Red Spot.",
-            DistanceFromSun = 778340821 
-        } },
-        { "Saturn", new Planet { 
-            Fact = "Saturn is famous for its beautiful rings.", 
-            FunFact = "Saturn is so light, it could float in water!",
-            DistanceFromSun = 1426666422 
-        } },
-        { "Uranus", new Planet { 
-            Fact = "Uranus is an ice giant and it spins on its side.", 
-            FunFact = "Uranus has faint rings around it.",
-            DistanceFromSun = 2870658186
-        } },
-        { "Neptune", new Planet { 
-            Fact = "Neptune is the farthest planet from the Sun in our solar system.", 
-            FunFact = "A windy planet, Neptune has the fastest winds in the solar system.",
-            DistanceFromSun = 4498396441 
-        } }};
-
-        string fact = planets[current_planet].Fact;
-        string funFact = planets[current_planet].FunFact;
-        float distance = planets[current_planet].DistanceFromSun;
-
-        StartCoroutine(TypeFacts(fact, funFact, distance));
-
-        // Do something with the information
-        // Debug.Log("Facts about " + current_planet + ": " + string.Join(", ", fact));
-        // Debug.Log("Fun Fact: " + funFact);
-        // Debug.Log("Distance from Sun: " + distance + " units");
+    
     }
 }
 
 class Planet
 {
     public string Fact { get; set; }
-    public string FunFact { get; set; }
-    public float DistanceFromSun { get; set; }
+    public string DistanceFromSun { get; set; }
+    public string LengthOfYear { get; set; }
+    public string LengthOfDay { get; set; }
 }
