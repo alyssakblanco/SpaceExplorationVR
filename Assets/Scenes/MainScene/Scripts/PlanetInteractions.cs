@@ -16,7 +16,7 @@ public class PlanetInteractions : MonoBehaviour
     public TextMeshProUGUI fact;
 
     public static GameObject current_planet;
-    private float typingSpeed = 0.05f;
+    private float typingSpeed = 0.1f;
     private Dictionary<string, Planet> planets = new Dictionary<string, Planet>{
         { "Mercury", new Planet { 
             Fact = "Mercury’s craters are named after famous artists, musicians and authors.", 
@@ -76,7 +76,7 @@ public class PlanetInteractions : MonoBehaviour
         // set this global variable for the DismissFacts script
         current_planet = planet;
 
-        TextMeshProUGUI[] textObjects = {planetName, fact, distanceFromSun, lengthOfYear, lengthOfDay};
+        TextMeshProUGUI[] textObjects = {planetName, distanceFromSun, lengthOfYear, lengthOfDay, fact};
         foreach (TextMeshProUGUI textMesh in textObjects){textMesh.text = "";}
 
         StartCoroutine(TypeFacts(textObjects));
@@ -84,7 +84,7 @@ public class PlanetInteractions : MonoBehaviour
 
     IEnumerator TypeFacts(TextMeshProUGUI[] textObjects)
     {
-        for (int i = 0; i < 5; ++i) {
+        for (int i = 0; i < 5; i++) {
             string currentString = "";
             // Perform different tasks based on the value of i
             switch (i) {
